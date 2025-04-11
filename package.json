@@ -1,0 +1,24 @@
+{
+  "name": "ai-conquest",
+  "version": "1.0.0",
+  "description": "AI Conquest - A strategy game",
+  "main": "server.js",
+  "scripts": {
+    "start": "node server.js",
+    "dev": "nodemon server.js",
+    "build": "npm run copy-assets",
+    "copy-assets": "mkdir -p public/sounds && cp -r sounds/* public/sounds/",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "express": "^4.18.2",
+    "compression": "^1.7.4",
+    "helmet": "^7.1.0"
+  },
+  "devDependencies": {
+    "nodemon": "^3.0.3"
+  }
+}

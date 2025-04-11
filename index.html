@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AI Conquest</title>
+    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700&family=Roboto:wght@300;400;500&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <!-- Main Menu -->
+    <div id="main-menu" class="overlay">
+        <div class="menu-content">
+            <h1>AI Conquest</h1>
+            <div class="menu-buttons">
+                <button id="play-button" class="menu-button">Play Game</button>
+                <button id="load-button" class="menu-button">Load Game</button>
+                <button id="options-button" class="menu-button">Options</button>
+                <button id="quit-button" class="menu-button">Quit</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Loading Screen -->
+    <div id="loading-screen">
+        <div class="loading-content">
+            <h1>AI World Domination</h1>
+            <div class="loading-bar">
+                <div class="loading-progress"></div>
+            </div>
+            <p class="loading-text">Initializing AI systems...</p>
+        </div>
+    </div>
+
+    <!-- AI Selection Screen -->
+    <div id="ai-select-screen" class="overlay">
+        <h2>Choose Your AI Core</h2>
+        <p>Select the type of Artificial Intelligence you will embody to achieve global dominance.</p>
+        <div id="ai-options-list">
+            <!-- AI options will be dynamically added here -->
+        </div>
+    </div>
+
+    <!-- Main Game Container -->
+    <div id="game-container">
+        <div id="status-bar">
+            <div>AI: <strong id="ai-type-name">N/A</strong></div>
+            <div>Points: <strong id="points-display">0</strong></div>
+            <div>Influence: <strong id="influence-display">0</strong></div>
+            <div>Control: <strong id="control-display">0</strong></div>
+            <div>Resistance: <strong id="resistance-display">0</strong></div>
+            <div>Time: <strong id="game-time">0</strong> days</div>
+            <button id="game-menu-button" class="menu-button">☰</button>
+        </div>
+
+        <div id="main-content">
+            <div id="map-area">
+                <h2>World Map</h2>
+                <div class="map-container">
+                    <canvas id="world-map"></canvas>
+                    <div id="country-tooltip" class="tooltip"></div>
+                </div>
+                <div id="regions-list" class="regions-list"></div>
+            </div>
+
+            <div id="action-panel">
+                <h3>AI Development</h3>
+                <div id="upgrade-tabs">
+                    <button class="tab-button active" data-tab="transmissions">Transmission</button>
+                    <button class="tab-button" data-tab="effects">Effects</button>
+                    <button class="tab-button" data-tab="abilities">Abilities</button>
+                </div>
+                <div class="upgrade-container">
+                    <div id="transmissions-list" class="upgrade-list active">
+                        <!-- Upgrades will be dynamically added here -->
+                    </div>
+                    <div id="effects-list" class="upgrade-list">
+                        <!-- Upgrades will be dynamically added here -->
+                    </div>
+                    <div id="abilities-list" class="upgrade-list">
+                        <!-- Upgrades will be dynamically added here -->
+                    </div>
+                </div>
+                <hr>
+                <button id="pause-button">Pause</button>
+                <p id="resistance-status" class="resistance-status">Resistance growth is nominal.</p>
+            </div>
+        </div>
+
+        <div id="message-log">
+            <p>Awaiting AI Core selection...</p>
+        </div>
+
+        <!-- Notification System -->
+        <div id="notification-container" class="notification">
+            <div class="notification-content">
+                <h3 id="notification-title"></h3>
+                <p id="notification-text"></p>
+                <button id="notification-close">×</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Game Over Screen -->
+    <div id="game-over-screen" class="overlay">
+        <div class="menu-content">
+            <h2 id="game-over-message">Game Over</h2>
+            <p id="game-over-stats"></p>
+            <div class="menu-buttons">
+                <button id="restart-button" class="menu-button">Play Again</button>
+                <button id="quit-to-menu-button" class="menu-button">Main Menu</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Tutorial Overlay -->
+    <div class="tutorial-overlay" id="tutorial-overlay">
+        <div class="tutorial-content">
+            <h3 id="tutorial-title">Welcome to AI Conquest</h3>
+            <div id="tutorial-text">
+                <!-- Tutorial content will be dynamically added here -->
+            </div>
+            <div class="tutorial-progress" id="tutorial-progress">
+                <!-- Progress dots will be dynamically added here -->
+            </div>
+            <div class="tutorial-navigation">
+                <button id="tutorial-prev">Previous</button>
+                <button id="tutorial-next">Next</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Achievement Toast -->
+    <div class="achievement-toast" id="achievement-toast">
+        <span class="achievement-icon">🏆</span>
+        <span id="achievement-title"></span>
+        <span id="achievement-desc"></span>
+    </div>
+
+    <!-- Game Menu -->
+    <div id="game-menu" class="overlay">
+        <div class="menu-content">
+            <h2>Game Menu</h2>
+            <div class="menu-buttons">
+                <button id="resume-button" class="menu-button">Resume Game</button>
+                <button id="save-button" class="menu-button">Save Game</button>
+                <button id="restart-button" class="menu-button">Restart Game</button>
+                <button id="quit-to-menu-button" class="menu-button">Quit to Main Menu</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Scripts -->
+    <script type="module" src="js/main.js"></script>
+</body>
+</html> 
