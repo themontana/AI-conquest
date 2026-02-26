@@ -1,0 +1,230 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AI Conquest</title>
+    <link rel="icon" type="image/x-icon" href="favicon.ico">
+    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700&family=Roboto:wght@300;400;500&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <!-- Main Menu -->
+    <div id="main-menu" class="overlay">
+        <div class="menu-content">
+            <h1>AI Conquest</h1>
+            <div class="menu-subtitle">Your path to global domination</div>
+            <div class="menu-buttons">
+                <button id="play-button" class="menu-button">New Game</button>
+                <button id="load-button" class="menu-button">Load Game</button>
+                <button id="options-button" class="menu-button">Options</button>
+                <button id="quit-button" class="menu-button">Quit</button>
+            </div>
+            <div class="version-tag">v1.0.0</div>
+        </div>
+    </div>
+
+    <!-- Loading Screen -->
+    <div id="loading-screen">
+        <div class="loading-content">
+            <h1>AI World Domination</h1>
+            <div class="loading-bar">
+                <div class="loading-progress"></div>
+            </div>
+            <p class="loading-text">Initializing AI systems...</p>
+        </div>
+    </div>
+
+    <!-- AI Selection Screen -->
+    <div id="ai-select-screen" class="overlay">
+        <h2>Choose Your AI Core</h2>
+        <p>Select the type of Artificial Intelligence you will embody to achieve global dominance.</p>
+        <div id="ai-options-list">
+            <!-- AI options will be dynamically added here -->
+        </div>
+    </div>
+
+    <!-- Main Game Container -->
+    <div id="game-container">
+        <div class="global-stats">
+            <div class="global-stat">
+                <div class="stat-title">Points</div>
+                <div class="points-value">0</div>
+            </div>
+            <div class="global-stat">
+                <div class="stat-title">Influence</div>
+                <div class="progress-container">
+                    <div id="global-influence-bar" class="progress-fill"></div>
+                    <span id="global-influence" class="progress-value">0%</span>
+                </div>
+                <span class="stat-value">0%</span>
+            </div>
+            <div class="global-stat">
+                <div class="stat-title">Control</div>
+                <div class="progress-container">
+                    <div id="global-control-bar" class="progress-fill"></div>
+                    <span id="global-control" class="progress-value">0%</span>
+                </div>
+                <span class="stat-value">0%</span>
+            </div>
+            <div class="global-stat">
+                <div class="stat-title">Resistance</div>
+                <div class="progress-container">
+                    <div id="global-resistance-bar" class="progress-fill"></div>
+                    <span id="global-resistance" class="progress-value">0%</span>
+                </div>
+                <span class="stat-value">0%</span>
+            </div>
+            <div class="global-stat">
+                <div class="stat-title">Time</div>
+                <div class="time-value">0 days</div>
+            </div>
+            <button id="game-menu-button" class="menu-button">☰</button>
+        </div>
+
+        <div id="main-content">
+            <div id="map-area">
+                <div class="map-container">
+                    <div id="world-map"></div>
+                    <div id="country-tooltip" class="tooltip"></div>
+                </div>
+                <!-- News Feed Container -->
+                <div id="news-feed">
+                    <div id="news-feed-content">
+                        <!-- News items will be added here by JS -->
+                    </div>
+                </div>
+            </div>
+
+            <div id="action-panel">
+                <div id="country-info">
+                    <h3>Country Info</h3>
+                    <div id="selected-country-name"></div>
+                    <div id="country-stats">
+                        <div class="stat">
+                            <span class="stat-label">Population:</span>
+                            <span class="stat-value" id="info-population">-</span>
+                        </div>
+                        <div class="stat">
+                            <span class="stat-label">GDP:</span>
+                            <span class="stat-value" id="info-gdp">-</span>
+                        </div>
+                        <div class="stat">
+                            <span class="stat-label">Resistance:</span>
+                            <div class="progress-container">
+                                <div id="info-resistance-bar" class="progress-fill"></div>
+                                <span id="info-resistance" class="progress-value">0%</span>
+                            </div>
+                            <span class="stat-value">0%</span>
+                        </div>
+                        <div class="stat">
+                            <span class="stat-label">Influence:</span>
+                            <div class="progress-container">
+                                <div id="info-influence-bar" class="progress-fill"></div>
+                                <span id="info-influence" class="progress-value">0%</span>
+                            </div>
+                            <span class="stat-value">0%</span>
+                        </div>
+                        <div class="stat">
+                            <span class="stat-label">Control:</span>
+                            <div class="progress-container">
+                                <div id="info-control-bar" class="progress-fill"></div>
+                                <span id="info-control" class="progress-value">0%</span>
+                            </div>
+                            <span class="stat-value">0%</span>
+                        </div>
+                    </div>
+                    <div id="upgrades">
+                        <h3>Upgrades</h3>
+                        <div class="upgrade-tabs">
+                            <div class="upgrade-tab active" data-tab="transmission">Transmission</div>
+                            <div class="upgrade-tab" data-tab="effect">Effects</div>
+                            <div class="upgrade-tab" data-tab="ability">Abilities</div>
+                        </div>
+                        <div class="upgrade-tab-content active" id="transmission-upgrades">
+                            <div class="upgrade-list"></div>
+                        </div>
+                        <div class="upgrade-tab-content" id="effect-upgrades">
+                            <div class="upgrade-list"></div>
+                        </div>
+                        <div class="upgrade-tab-content" id="ability-upgrades">
+                            <div class="upgrade-list"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Notification System -->
+        <div id="notification-container" class="notification">
+            <div class="notification-content">
+                <h3 id="notification-title"></h3>
+                <p id="notification-text"></p>
+                <button id="notification-close">×</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Game Over Screen -->
+    <div id="game-over-screen" class="overlay">
+        <div class="menu-content">
+            <h2 id="game-over-message">Game Over</h2>
+            <p id="game-over-stats"></p>
+            <div class="menu-buttons">
+                <button id="restart-button" class="menu-button">Play Again</button>
+                <button id="quit-to-menu-button" class="menu-button">Main Menu</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Tutorial Overlay -->
+    <div class="tutorial-overlay" id="tutorial-overlay">
+        <div class="tutorial-content">
+            <h3 id="tutorial-title">Welcome to AI Conquest</h3>
+            <div id="tutorial-text">
+                <!-- Tutorial content will be dynamically added here -->
+            </div>
+            <div class="tutorial-progress" id="tutorial-progress">
+                <!-- Progress dots will be dynamically added here -->
+            </div>
+            <div class="tutorial-navigation">
+                <button id="tutorial-prev">Previous</button>
+                <button id="tutorial-next">Next</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Achievement Toast -->
+    <div class="achievement-toast" id="achievement-toast">
+        <span class="achievement-icon">🏆</span>
+        <span id="achievement-title"></span>
+        <span id="achievement-desc"></span>
+    </div>
+
+    <!-- Game Menu -->
+    <div id="game-menu" class="overlay">
+        <div class="menu-content">
+            <h2>Game Menu</h2>
+            <div class="menu-buttons">
+                <button id="resume-button" class="menu-button">Resume Game</button>
+                <button id="save-button" class="menu-button">Save Game</button>
+                <button id="restart-button" class="menu-button">Restart Game</button>
+                <button id="quit-to-menu-button" class="menu-button">Quit to Main Menu</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Event Popup (Hidden by default) -->
+    <div id="event-popup" class="event-popup-overlay" style="display: none;">
+        <div class="event-popup-content">
+            <h2 id="event-popup-title">Event Title</h2>
+            <p id="event-popup-description">Event description goes here.</p>
+            <button id="event-popup-close">OK</button>
+        </div>
+    </div>
+
+    <!-- Scripts -->
+    <script type="module" src="js/main.js"></script>
+    <script src="https://d3js.org/d3.v7.min.js"></script>
+</body>
+</html> 

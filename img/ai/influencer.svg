@@ -1,0 +1,57 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="200" height="200" viewBox="0 0 200 200">
+  <rect width="200" height="200" fill="#1a1a2a" />
+  
+  <!-- AI Core -->
+  <circle cx="100" cy="80" r="35" fill="none" stroke="#4a90e2" stroke-width="4" />
+  <circle cx="100" cy="80" r="30" fill="none" stroke="#4a90e2" stroke-width="2" opacity="0.5" />
+  
+  <!-- Network/Influence Lines -->
+  <g stroke="#4a90e2" stroke-width="2">
+    <!-- Main Network Structure -->
+    <path d="M100,115 L100,140" fill="none" />
+    <path d="M100,140 L60,180" fill="none" />
+    <path d="M100,140 L140,180" fill="none" />
+    
+    <!-- Additional Network Connections -->
+    <path d="M100,140 L80,160" fill="none" />
+    <path d="M100,140 L120,160" fill="none" />
+    <path d="M80,160 L120,160" fill="none" stroke-dasharray="3,2" />
+    
+    <!-- Network Nodes -->
+    <circle cx="60" cy="180" r="8" fill="#4a90e2" opacity="0.7" />
+    <circle cx="100" cy="140" r="8" fill="#4a90e2" opacity="0.8" />
+    <circle cx="140" cy="180" r="8" fill="#4a90e2" opacity="0.7" />
+    <circle cx="80" cy="160" r="6" fill="#4a90e2" opacity="0.6" />
+    <circle cx="120" cy="160" r="6" fill="#4a90e2" opacity="0.6" />
+    
+    <!-- Dynamic Network Connections -->
+    <path d="M60,180 C30,140 60,40 100,80" fill="none" stroke-dasharray="3,2" opacity="0.5" />
+    <path d="M140,180 C170,140 140,40 100,80" fill="none" stroke-dasharray="3,2" opacity="0.5" />
+    <path d="M80,160 C60,120 80,60 100,80" fill="none" stroke-dasharray="2,2" opacity="0.4" />
+    <path d="M120,160 C140,120 120,60 100,80" fill="none" stroke-dasharray="2,2" opacity="0.4" />
+  </g>
+  
+  <!-- AI Eyes -->
+  <circle cx="85" cy="75" r="5" fill="#4a90e2" />
+  <circle cx="115" cy="75" r="5" fill="#4a90e2" />
+  
+  <!-- Influence Waves -->
+  <g stroke="#4a90e2" stroke-width="1.5" opacity="0.6">
+    <circle cx="100" cy="80" r="45" fill="none" stroke-dasharray="3,3" />
+    <circle cx="100" cy="80" r="55" fill="none" stroke-dasharray="4,4" />
+    <circle cx="100" cy="80" r="65" fill="none" stroke-dasharray="5,5" />
+  </g>
+  
+  <!-- Glowing Effects -->
+  <filter id="glow">
+    <feGaussianBlur stdDeviation="2" result="coloredBlur"/>
+    <feMerge>
+      <feMergeNode in="coloredBlur"/>
+      <feMergeNode in="SourceGraphic"/>
+    </feMerge>
+  </filter>
+  
+  <!-- Apply glow to core elements -->
+  <circle cx="100" cy="80" r="35" fill="none" stroke="#4a90e2" stroke-width="4" filter="url(#glow)" />
+  <circle cx="100" cy="140" r="8" fill="#4a90e2" opacity="0.8" filter="url(#glow)" />
+</svg> 

@@ -1,0 +1,71 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="200" height="200" viewBox="0 0 200 200">
+  <rect width="200" height="200" fill="#1a1a2a" />
+  
+  <!-- AI Core -->
+  <circle cx="100" cy="80" r="35" fill="none" stroke="#9b59b6" stroke-width="4" />
+  <circle cx="100" cy="80" r="30" fill="none" stroke="#9b59b6" stroke-width="2" opacity="0.5" />
+  
+  <!-- Infiltration Structure -->
+  <g stroke="#9b59b6" stroke-width="2">
+    <!-- Main path -->
+    <path d="M100,115 L100,140" fill="none" />
+    
+    <!-- Enhanced Shield/Barrier -->
+    <path d="M50,150 C50,100 150,100 150,150" fill="none" stroke="#9b59b6" stroke-width="3" stroke-dasharray="5,3" />
+    <path d="M45,145 C45,95 155,95 155,145" fill="none" stroke="#9b59b6" stroke-width="2" stroke-dasharray="3,2" opacity="0.5" />
+    
+    <!-- Enhanced Infiltration Paths -->
+    <path d="M100,140 L70,175" fill="none" />
+    <path d="M100,140 L130,175" fill="none" />
+    <path d="M100,140 C60,170 40,130 50,150" fill="none" stroke-dasharray="3,2" />
+    <path d="M100,140 C140,170 160,130 150,150" fill="none" stroke-dasharray="3,2" />
+    
+    <!-- Additional Stealth Paths -->
+    <path d="M100,140 C80,160 60,140 50,150" fill="none" stroke-dasharray="2,2" opacity="0.4" />
+    <path d="M100,140 C120,160 140,140 150,150" fill="none" stroke-dasharray="2,2" opacity="0.4" />
+    <path d="M70,175 C60,165 50,155 50,150" fill="none" stroke-dasharray="2,2" opacity="0.3" />
+    <path d="M130,175 C140,165 150,155 150,150" fill="none" stroke-dasharray="2,2" opacity="0.3" />
+    
+    <!-- Infiltration Points -->
+    <circle cx="70" cy="175" r="6" fill="#9b59b6" opacity="0.8" />
+    <circle cx="130" cy="175" r="6" fill="#9b59b6" opacity="0.8" />
+    <circle cx="100" cy="140" r="8" fill="#9b59b6" opacity="0.7" />
+    <circle cx="50" cy="150" r="4" fill="#9b59b6" opacity="0.6" />
+    <circle cx="150" cy="150" r="4" fill="#9b59b6" opacity="0.6" />
+  </g>
+  
+  <!-- AI Eyes - stealth -->
+  <circle cx="85" cy="75" r="5" fill="#9b59b6" opacity="0.9" />
+  <circle cx="115" cy="75" r="5" fill="#9b59b6" opacity="0.9" />
+  
+  <!-- Enhanced Stealth Mask -->
+  <path d="M70,80 C70,65 130,65 130,80" fill="none" stroke="#9b59b6" stroke-width="2" />
+  <path d="M75,75 C75,60 125,60 125,75" fill="none" stroke="#9b59b6" stroke-width="1" opacity="0.5" />
+  
+  <!-- Enhanced Stealth Waves -->
+  <g stroke="#9b59b6" stroke-width="1" opacity="0.5">
+    <path d="M70,50 C85,40 115,40 130,50" fill="none" stroke-dasharray="2,2" />
+    <path d="M75,40 C90,30 110,30 125,40" fill="none" stroke-dasharray="3,3" />
+    <path d="M80,30 C90,20 110,20 120,30" fill="none" stroke-dasharray="4,4" />
+    <!-- Additional stealth waves -->
+    <path d="M65,45 C85,35 115,35 135,45" fill="none" stroke-dasharray="2,2" opacity="0.3" />
+    <path d="M60,40 C85,30 115,30 140,40" fill="none" stroke-dasharray="3,3" opacity="0.2" />
+  </g>
+  
+  <!-- Glowing Effects -->
+  <filter id="glow">
+    <feGaussianBlur stdDeviation="2" result="coloredBlur"/>
+    <feMerge>
+      <feMergeNode in="coloredBlur"/>
+      <feMergeNode in="SourceGraphic"/>
+    </feMerge>
+  </filter>
+  
+  <!-- Apply glow to core elements -->
+  <circle cx="100" cy="80" r="35" fill="none" stroke="#9b59b6" stroke-width="4" filter="url(#glow)" />
+  <circle cx="100" cy="140" r="8" fill="#9b59b6" opacity="0.7" filter="url(#glow)" />
+  
+  <!-- Stealth Aura -->
+  <circle cx="100" cy="80" r="45" fill="none" stroke="#9b59b6" stroke-width="1" opacity="0.2" />
+  <circle cx="100" cy="80" r="55" fill="none" stroke="#9b59b6" stroke-width="1" opacity="0.1" />
+</svg> 

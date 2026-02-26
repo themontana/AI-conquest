@@ -1,0 +1,70 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="200" height="200" viewBox="0 0 200 200">
+  <rect width="200" height="200" fill="#1a1a2a" />
+  
+  <!-- AI Core -->
+  <circle cx="100" cy="80" r="35" fill="none" stroke="#e74c3c" stroke-width="4" />
+  <circle cx="100" cy="80" r="30" fill="none" stroke="#e74c3c" stroke-width="2" opacity="0.5" />
+  
+  <!-- Control Structure -->
+  <g stroke="#e74c3c" stroke-width="3">
+    <!-- Fortress-like structure -->
+    <rect x="70" y="125" width="60" height="50" fill="none" />
+    <rect x="60" y="115" width="80" height="10" fill="none" />
+    <rect x="80" y="175" width="40" height="10" fill="none" />
+    
+    <!-- Enhanced Control pillars -->
+    <line x1="70" y1="125" x2="70" y2="175" />
+    <line x1="130" y1="125" x2="130" y2="175" />
+    <line x1="100" y1="115" x2="100" y2="125" />
+    
+    <!-- Control connections -->
+    <line x1="100" y1="115" x2="60" y2="115" />
+    <line x1="100" y1="115" x2="140" y2="115" />
+    
+    <!-- Additional Control Elements -->
+    <rect x="75" y="130" width="50" height="35" fill="none" />
+    <line x1="75" y1="130" x2="125" y2="130" />
+    <line x1="75" y1="165" x2="125" y2="165" />
+  </g>
+  
+  <!-- Control Points -->
+  <circle cx="60" cy="115" r="5" fill="#e74c3c" />
+  <circle cx="140" cy="115" r="5" fill="#e74c3c" />
+  <circle cx="70" cy="175" r="5" fill="#e74c3c" />
+  <circle cx="130" cy="175" r="5" fill="#e74c3c" />
+  <circle cx="100" cy="115" r="6" fill="#e74c3c" />
+  
+  <!-- AI Eyes - intense -->
+  <circle cx="85" cy="75" r="5" fill="#e74c3c" />
+  <circle cx="115" cy="75" r="5" fill="#e74c3c" />
+  <line x1="80" y1="75" x2="90" y2="75" stroke="#e74c3c" stroke-width="2" />
+  <line x1="110" y1="75" x2="120" y2="75" stroke="#e74c3c" stroke-width="2" />
+  
+  <!-- Enhanced Power Symbols -->
+  <g stroke="#e74c3c" stroke-width="1.5" opacity="0.7">
+    <path d="M 70,45 L 130,45" />
+    <path d="M 75,35 L 125,35" />
+    <path d="M 85,25 L 115,25" />
+    <path d="M 100,15 L 100,35" />
+    <!-- Additional power lines -->
+    <path d="M 80,20 L 120,20" />
+    <path d="M 90,15 L 110,15" />
+  </g>
+  
+  <!-- Glowing Effects -->
+  <filter id="glow">
+    <feGaussianBlur stdDeviation="2" result="coloredBlur"/>
+    <feMerge>
+      <feMergeNode in="coloredBlur"/>
+      <feMergeNode in="SourceGraphic"/>
+    </feMerge>
+  </filter>
+  
+  <!-- Apply glow to core elements -->
+  <circle cx="100" cy="80" r="35" fill="none" stroke="#e74c3c" stroke-width="4" filter="url(#glow)" />
+  <circle cx="100" cy="115" r="6" fill="#e74c3c" filter="url(#glow)" />
+  
+  <!-- Power Aura -->
+  <circle cx="100" cy="80" r="45" fill="none" stroke="#e74c3c" stroke-width="1" opacity="0.3" />
+  <circle cx="100" cy="80" r="55" fill="none" stroke="#e74c3c" stroke-width="1" opacity="0.2" />
+</svg> 
