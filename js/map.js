@@ -13,7 +13,6 @@ class WorldMap {
     }
 
     init() {
-        console.log('Initializing world map...');
         // Get canvas element
         this.canvas = document.getElementById(this.mapId);
         if (!this.canvas) {
@@ -44,7 +43,6 @@ class WorldMap {
         // Draw initial map
         this.render();
         this.initialized = true;
-        console.log('World map initialized');
     }
 
     createSampleCountries() {
@@ -73,16 +71,8 @@ class WorldMap {
     }
 
     render() {
-        if (!this.ctx || !this.canvas) {
-            console.error('Cannot render map: canvas or context not initialized');
-            return;
-        }
-
-        if (!this.dirty) {
-            return; // Skip render if nothing has changed
-        }
-
-        console.log('Rendering world map...');
+        if (!this.ctx || !this.canvas) return;
+        if (!this.dirty) return;
 
         // Clear canvas
         this.ctx.clearRect(0, 0, this.canvas.width, this.canvas.height);
@@ -117,7 +107,6 @@ class WorldMap {
 
         this.dirty = false;
         this.renderRequested = false;
-        console.log('World map rendered');
     }
 
     requestRender() {
@@ -131,14 +120,18 @@ class WorldMap {
 
     getCountryColor(country) {
         if (country.control >= (CONFIG.CONTROL_THRESHOLD || 75)) {
-            return '#2a6a2a';
+            return '#1b8a1b';
         } else if (country.influence >= (CONFIG.INFLUENCE_THRESHOLD || 50)) {
-            return '#2a4a6a';
+            const controlIntensity = Math.min(country.control / (CONFIG.CONTROL_THRESHOLD || 75), 1);
+            const r = Math.round(30);
+            const g = Math.round(80 + controlIntensity * 58);
+            const b = Math.round(130 - controlIntensity * 100);
+            return `rgb(${r}, ${g}, ${b})`;
         } else if (country.influence > 0) {
             const intensity = Math.min(country.influence / (CONFIG.INFLUENCE_THRESHOLD || 50), 1);
-            const r = Math.round(42 + intensity * 0);
-            const g = Math.round(42 + intensity * 32);
-            const b = Math.round(42 + intensity * 64);
+            const r = Math.round(42);
+            const g = Math.round(42 + intensity * 40);
+            const b = Math.round(42 + intensity * 90);
             return `rgb(${r}, ${g}, ${b})`;
         } else {
             return '#2a2a2a';

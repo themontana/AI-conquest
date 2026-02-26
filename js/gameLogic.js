@@ -19,45 +19,11 @@ export class GameLogic {
     async initializeGame() {
         try {
             this.state = new GameState();
-
             await this.loadSounds();
-
-            if (this.ui) {
-                this.ui.updateLoadingProgress(20, 'Loading game state...');
-                await new Promise(resolve => setTimeout(resolve, 500));
-            }
-
-            if (this.ui) {
-                this.ui.updateLoadingProgress(40, 'Setting up regions...');
-                await new Promise(resolve => setTimeout(resolve, 500));
-            }
-
-            if (this.ui) {
-                this.ui.updateLoadingProgress(60, 'Setting up interface...');
-                await new Promise(resolve => setTimeout(resolve, 500));
-            }
-
-            if (this.ui) {
-                this.ui.updateLoadingProgress(80, 'Starting game...');
-                await new Promise(resolve => setTimeout(resolve, 500));
-            }
-
             this.startGameLoop();
-
-            if (this.ui) {
-                this.ui.updateLoadingProgress(100, 'Game ready!');
-                setTimeout(() => {
-                    this.ui.hideLoadingScreen();
-                    this.ui.showAISelectionScreen();
-                }, 1000);
-            }
-
             console.log('Game initialization complete');
         } catch (error) {
             console.error('Error during game initialization:', error);
-            if (this.ui) {
-                this.ui.updateLoadingProgress(0, 'Error initializing game. Please refresh.');
-            }
             throw error;
         }
     }
