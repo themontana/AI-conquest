@@ -48,10 +48,8 @@ class WorldMap {
     }
 
     createSampleCountries() {
-        // Create sample countries for each region
         this.countries = {};
-        
-        // Define regions and positions
+
         const regions = [
             { name: 'North America', x: 0.1, y: 0.2 },
             { name: 'South America', x: 0.2, y: 0.6 },
@@ -61,13 +59,10 @@ class WorldMap {
             { name: 'Oceania', x: 0.8, y: 0.7 },
             { name: 'Antarctica', x: 0.5, y: 0.85 }
         ];
-        
-        // Create countries for each region
+
         regions.forEach(region => {
-            const regionCode = region.name.substring(0, 2).toUpperCase();
-            this.countries[regionCode] = {
+            this.countries[region.name] = {
                 name: region.name,
-                code: regionCode,
                 continent: region.name,
                 coordinates: { x: region.x, y: region.y },
                 influence: 0,
@@ -135,32 +130,26 @@ class WorldMap {
     }
 
     getCountryColor(country) {
-        const colors = CONFIG.COUNTRY_COLORS || {
-            neutral: '#2a2a2a',
-            influenced: '#4a4a8a',
-            controlled: '#6a6aba'
-        };
-        
         if (country.control >= (CONFIG.CONTROL_THRESHOLD || 75)) {
-            return colors.controlled;
+            return '#2a6a2a';
         } else if (country.influence >= (CONFIG.INFLUENCE_THRESHOLD || 50)) {
-            return colors.influenced;
+            return '#2a4a6a';
+        } else if (country.influence > 0) {
+            const intensity = Math.min(country.influence / (CONFIG.INFLUENCE_THRESHOLD || 50), 1);
+            const r = Math.round(42 + intensity * 0);
+            const g = Math.round(42 + intensity * 32);
+            const b = Math.round(42 + intensity * 64);
+            return `rgb(${r}, ${g}, ${b})`;
         } else {
-            return colors.neutral;
+            return '#2a2a2a';
         }
     }
 
     updateCountryStats(code, stats) {
         if (this.countries[code]) {
-            const oldColor = this.getCountryColor(this.countries[code]);
             this.countries[code] = { ...this.countries[code], ...stats };
-            const newColor = this.getCountryColor(this.countries[code]);
-            
-            // Only mark as dirty if the color changed
-            if (oldColor !== newColor) {
-                this.dirty = true;
-                this.requestRender();
-            }
+            this.dirty = true;
+            this.requestRender();
         }
     }
 }
